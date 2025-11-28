@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button } from '../Button';
-import { Clock, DollarSign, XCircle } from 'lucide-react';
+import { Clock, DollarSign } from 'lucide-react';
 
 interface ComparisonProps {
   onNext: () => void;
@@ -8,38 +8,42 @@ interface ComparisonProps {
 
 export const Comparison: React.FC<ComparisonProps> = ({ onNext }) => {
   return (
-    <div className="space-y-10 w-full max-w-md text-center animate-fade-in-up">
+    <div className="space-y-12 w-full max-w-md text-center animate-fade-in-up">
+      {/* Other Schools Section */}
       <div className="space-y-6">
-        <div className="bg-gray-50 p-6 rounded-2xl space-y-3">
-          <h3 className="text-gray-500 font-semibold uppercase text-sm tracking-wider">Otras Escuelas</h3>
-          <div className="flex items-center justify-center gap-2 text-gray-400">
-             <Clock className="w-5 h-5" /> <span>Meses de teoría</span>
+        <h3 className="text-gray-400 font-semibold uppercase text-xs tracking-[0.2em]">Otras Escuelas</h3>
+        <div className="flex flex-col gap-4 items-center">
+          <div className="flex items-center gap-3 text-gray-400">
+             <Clock className="w-6 h-6 stroke-1" /> 
+             <span className="text-xl font-light">Meses de teoría</span>
           </div>
-          <div className="flex items-center justify-center gap-2 text-gray-400">
-             <DollarSign className="w-5 h-5" /> <span>Cientos de dólares</span>
+          <div className="flex items-center gap-3 text-gray-400">
+             <DollarSign className="w-6 h-6 stroke-1" /> 
+             <span className="text-xl font-light">Cientos de dólares</span>
           </div>
-        </div>
-
-        <div className="relative">
-             <div className="absolute inset-0 flex items-center" aria-hidden="true">
-                <div className="w-full border-t border-gray-200" />
-            </div>
-            <div className="relative flex justify-center">
-                <span className="bg-white px-3 text-sm font-semibold text-blue-600">VS</span>
-            </div>
-        </div>
-
-        <div className="space-y-4">
-            <h2 className="text-3xl font-bold">Domínalo en 2 horas intensivas</h2>
-            <p className="text-gray-600">
-                Sin rellenos. Sin perder tiempo. Directo a la práctica.
-            </p>
         </div>
       </div>
 
-      <Button onClick={onNext}>
-        ¡Me interesa saber cómo!
-      </Button>
+      {/* Divider */}
+      <div className="w-full h-px bg-gray-100 relative">
+         <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-4 text-blue-600 font-bold text-sm">
+            VS
+         </span>
+      </div>
+
+      {/* Us Section */}
+      <div className="space-y-4">
+        <h2 className="text-3xl font-bold text-black">Domínalo en 2 horas</h2>
+        <p className="text-gray-600 text-lg leading-relaxed">
+            Sin rellenos. Sin perder tiempo.<br/>Directo a la práctica.
+        </p>
+      </div>
+
+      <div className="pt-4">
+        <Button onClick={onNext}>
+            ¡Me interesa saber cómo!
+        </Button>
+      </div>
     </div>
   );
 };

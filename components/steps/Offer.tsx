@@ -24,27 +24,36 @@ export const Offer: React.FC<OfferProps> = ({ onNext }) => {
   };
 
   return (
-    <div className="space-y-8 w-full max-w-md text-center animate-fade-in-up">
+    <div className="space-y-10 w-full max-w-md text-center animate-fade-in-up">
       
       {/* Timer Badge */}
-      <div className="inline-flex items-center gap-2 bg-red-50 text-red-600 px-4 py-2 rounded-full font-bold animate-pulse">
-        <Timer className="w-5 h-5" />
-        <span>La oferta expira en: {formatTime(timeLeft)}</span>
-      </div>
-
-      <div className="space-y-2">
-        <p className="text-gray-400 text-xl font-medium line-through">Precio Regular: $49 USD</p>
-        <div className="space-y-1">
-             <h2 className="text-6xl font-black text-blue-600 tracking-tighter">
-            $15 USD
-            </h2>
-            <p className="text-sm text-gray-500">Pago único. Acceso de por vida.</p>
+      <div className="flex justify-center">
+        <div 
+          role="timer" 
+          aria-live="polite"
+          className="inline-flex items-center gap-2 text-red-500 font-mono text-lg font-bold"
+        >
+          <Timer className="w-5 h-5" />
+          <span>{formatTime(timeLeft)}</span>
         </div>
       </div>
 
-      <div className="bg-gray-50 p-6 rounded-xl border border-gray-100">
-        <p className="text-gray-800 font-medium">
-          Obtén el <span className="text-blue-600 font-bold">70% de descuento</span> solo por haber completado el test hoy.
+      <div className="space-y-4">
+        <p className="text-gray-400 text-xl font-medium line-through decoration-1">
+          Normal: $49 USD
+        </p>
+        <div className="space-y-2">
+             <h2 className="text-7xl font-black text-blue-600 tracking-tighter">
+            $15
+            <span className="text-2xl text-gray-500 font-normal ml-2 tracking-normal">USD</span>
+            </h2>
+        </div>
+      </div>
+
+      <div className="border-t border-b border-gray-100 py-6">
+        <p className="text-gray-800 text-lg leading-relaxed">
+          Acceso de por vida con <br/>
+          <span className="font-bold text-blue-600">70% de descuento</span> hoy.
         </p>
       </div>
 
